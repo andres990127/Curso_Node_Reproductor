@@ -19,6 +19,8 @@ app.use(cors());
 // Constante con el puerto, se obtiene de las variables de entorno
 const port = process.env.PORT || 3000;
 
+app.use("/api", require("./routes"));
+
 // Le decimos a la aplicación que escuche por el puerto 3000
 app.listen(port, () =>{
     console.log('Tu app esta lista por http://localhost:'+ port);

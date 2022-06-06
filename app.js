@@ -16,6 +16,9 @@ const app = express();
 // Le decimos a la app que use cors
 app.use(cors());
 
+// Le decimos a la app que se prepare para leer json que vengan en el body
+app.use(express.json());
+
 // Constante con el puerto, se obtiene de las variables de entorno
 const port = process.env.PORT || 3000;
 

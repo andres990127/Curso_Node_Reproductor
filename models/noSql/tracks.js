@@ -7,40 +7,40 @@ const mongoose = require('mongoose');
 const tracksScheme = new mongoose.Schema(
     {
         name: {
-            type: String
+            type: String,
         },
         album: {
-            type: String
+            type: String,
         },
         cover: {
             type: String,
             validate: {
-                validador: (req) => {
+                validator: (req) => {
                     return true;
                 },
-                message: "Error_URL",
+                message: "ERROR_URL",
             },
         },
         artist: {
-            name:{
-                type: String
+            name: {
+                type: String,
             },
-            nickname:{
-                type: String
+            nickname: {
+                type: String,
             },
-            nationality:{
-                type: String
-            },
-        },
-        duration:{
-            start:{
-                type: Number
-            },
-            end:{
-                type: Number
+            nationality: {
+                type: String,
             },
         },
-        mediaId:{
+        duration: {
+            start: {
+                type: Number,
+            },
+            end: {
+                type: Number,
+            },
+        },
+        mediaId: {
             type: mongoose.Types.ObjectId,
         },
     },

@@ -19,9 +19,13 @@ app.use(cors());
 // Le decimos a la app que se prepare para leer json que vengan en el body
 app.use(express.json());
 
+// Se exponen los recursos públicos, en este caso los archivos guardados en la carpeta "storage" [http://localhost:3001/file-1654637701010.png]
+app.use(express.static("storage"));
+
 // Constante con el puerto, se obtiene de las variables de entorno
 const port = process.env.PORT || 3000;
 
+// Se redirige al archivo de rutas para que accese a su respectiva ruta
 app.use("/api", require("./routes"));
 
 // Le decimos a la aplicación que escuche por el puerto 3000

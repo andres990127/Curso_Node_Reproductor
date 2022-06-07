@@ -1,4 +1,4 @@
-// Archivo para 
+// Archivo para redireccionar las peticiones a la ruta correspondiente
 
 // Importamos express
 const express = require('express');

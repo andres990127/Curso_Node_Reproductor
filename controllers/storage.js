@@ -1,13 +1,13 @@
-// Archivo de funciones para canciones
+// Archivo de funciones para almacenamiento
 
 // Importamos el modelo
-const { tracksModel } = require('../models/index');
+const { storageModel } = require('../models/index');
 
 // Obtiene una lista de canciones [¡Debe ser asincrona toda función que tenga un AWAIT adentro!]
 const getItems =  async (req, res)=>{
 
     // Obtenemos todos los registros de canciones de la base de datos
-    const data = await tracksModel.find({});
+    const data = await storageModel.find({});
     
     // Respondemos con la data obtenida
     res.send({data});
@@ -21,11 +21,16 @@ const getItem = (req, res)=>{
 // Crea un registro de canción
 const createItem = async (req, res)=>{
     
-    // Obtenemos el json que nos envien en el body
-    const body = req.body;
+    // Obtenemos el json que nos envien en el body y el nombre del archivo que se suba
+    const { body, file } = req;
+
+    const fileData = {
+        filename: file.filename,
+        url: process.env.PUBLIC_URL + '/' + file.filename,
+    }
 
     // Creamos el nuevo registro en nuestra base de datos
-    const data = await tracksModel.create(body);
+    const data = await storageModel.create(fileData);
 
     // Respondemos con el resultado que no de esa creación
     res.send(data);

@@ -4,6 +4,8 @@ const express = require('express');
 // Importamos el manejador de rutas de express
 const router = express.Router();
 
+const { validatorCreateItem } = require('../validators/tracks');
+
 // Importamos el controlador correspondiente a la ruta "tracks"
 const controller = require('../controllers/tracks');
 
@@ -14,7 +16,7 @@ router.get('/', controller.getItems);
 router.get('/:id', controller.getItem);
 
 // Para una petición post usamos la función createItem del controlador
-router.post('/', controller.createItem);
+router.post('/', validatorCreateItem, controller.createItem);
 
 // Exportamos el modulo
 module.exports = router;

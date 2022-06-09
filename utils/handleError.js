@@ -1,8 +1,9 @@
 // Archivo para estandarización de respuestas HTTP
 
-const handleHttpError = (res, message = 'Algo sucedió', code = 403)=>{
+const handleHttpError = (e, res, message = 'Algo sucedió', code = 403)=>{
+    console.error('[ERROR] ' + e);
     res.status(code);
-    res.status({ error: message });
+    res.send({ error: message });
 }
 
 module.exports = handleHttpError;

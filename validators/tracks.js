@@ -10,7 +10,6 @@ const  validateResult  = require('../utils/handleValidator');
 const validatorCreateItem = [
     check("name").exists().notEmpty(),
     check("album").exists().notEmpty(),
-    check("mediaId").exists().notEmpty().isMongoId(),
     check("cover").exists().notEmpty().isURL(),
     check("artist").exists().notEmpty(),
     check("artist.name").exists().notEmpty(),
@@ -18,6 +17,15 @@ const validatorCreateItem = [
     check("artist.nationality").exists().notEmpty(),
     check("duration.start").exists().notEmpty(),
     check("duration.end").exists().notEmpty(),
+    check("mediaId").exists().notEmpty().isMongoId(),
+    (req, res, next) => {
+        validateResult(req, res, next); // Llamamos al manejador de validaciones
+    },
+];
+
+// Creamos la validación del envio de ID por parámetrps
+const validateParamId = [
+    check("id").exists().isMongoId(),
     (req, res, next) => {
         validateResult(req, res, next); // Llamamos al manejador de validaciones
     },
@@ -26,4 +34,5 @@ const validatorCreateItem = [
 // Exportamos la validación d la creación de item de track
 module.exports = {
     validatorCreateItem,
+    validateParamId,
 }

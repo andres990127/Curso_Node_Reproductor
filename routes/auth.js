@@ -10,13 +10,11 @@ const router = express.Router();
 // Se importa el validador para gestión de storage
 const validators = require('../validators/auth');
 
-// Para una petición post usamos la función createItem del controlador
-router.post('/register', validators.validateRegister, controller.loginCtrl);
+// Para una petición post de registro usamos RegisterCtrl
+router.post('/register', validators.validateRegister, controller.RegisterCtrl);
 
-// Para una petición post usamos la función createItem del controlador
-router.post('/login', (req, res) =>{
-
-});
+// Para una petición post de login usamos LoginCtrl
+router.post('/login', validators.validatorLogin, controller.LoginCtrl);
 
 // Exportamos el modulo
 module.exports = router;

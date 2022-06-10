@@ -13,8 +13,11 @@ const validators = require('../validators/tracks');
 // Importamos el controlador correspondiente a la ruta "tracks"
 const controller = require('../controllers/tracks');
 
+// Importamos nuestro modulo para la verificación del Json Web Token
+const authMiddleware = require('../middleware/session');
+
 // Para una petición get usamos la función getItems del controlador
-router.get('/', controller.getItems);
+router.get('/', authMiddleware, controller.getItems);
 
 // Para una petición get con identificador usamos la función getItem del controlador
 router.get('/:id', validators.validateParamId, controller.getItem);

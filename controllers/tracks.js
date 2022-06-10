@@ -12,11 +12,14 @@ const handleHttpError = require('../utils/handleError');
 // Obtiene una lista de canciones [¡Debe ser asincrona toda función que tenga un AWAIT adentro!]
 const getItems = async (req, res) => {
     try {
+        // Obtenemos el usuario que se autenticó e hizo la petición
+        const user = req.user;
+
         // Obtenemos todos los registros de canciones de la base de datos
         const data = await tracksModel.find({});
 
         // Respondemos con la data obtenida
-        res.send({ data });
+        res.send({ data, user });
 
     } catch (e) {
         handleHttpError(e, res, "Error en obtención de tracks");

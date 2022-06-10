@@ -19,7 +19,7 @@ const tokenSing = async (user) => {
 // Método para verificar si el token tiene nuestra firma
 const verifySing = async (tokenJwt) => {
     try{
-        return jwt.verify(tokenJwt, JWT_SECRET);
+        return jwt.verify(tokenJwt, process.env.JWT_SECRET);
     }catch(e){
         return null;
     };

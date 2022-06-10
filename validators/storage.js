@@ -1,4 +1,4 @@
-// Archivo para hacer las validaciones de la información que se recibe para el schema de "tracks"
+// Archivo para hacer las validaciones de la información que se recibe para el schema de "storage"
 
 // Importamos "Check" para hacer validaciones
 const { check } = require('express-validator');
@@ -14,7 +14,7 @@ const validateParamId = [
     },
 ];
 
-// Exportamos la validación d la creación de item de track
+// Exportamos las validaciones
 module.exports = {
     validateParamId,
 }

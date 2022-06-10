@@ -31,7 +31,7 @@ const validateParamId = [
     },
 ];
 
-// Exportamos la validación d la creación de item de track
+// Exportamos las validaciones
 module.exports = {
     validatorCreateItem,
     validateParamId,

@@ -13,8 +13,11 @@ const morganBody = require('morgan-body');
 // Importamos nuestro modulo de interacción con SLACK
 const loggerStream = require('./utils/handleLogger');
 
-// Importamos nuestro modulo para conexión a la base de datos
-const dbConnect = require('./config/mongo');
+// Importamos nuestro modulo para conexión a la base de datos mongo
+const dbConnectNosql = require('./config/mongo');
+
+// Importamos nuestro modulo para conexión a la base de datos MySql
+const { dbConnectMySql } = require('./config/mySql');
 
 // Le llamamos al servidor 'app'
 const app = express();
@@ -46,7 +49,8 @@ app.use("/api", require("./routes"));
 // Le decimos a la aplicación que escuche por el puerto 3000
 app.listen(port, () =>{
     console.log('Tu app esta lista por http://localhost:'+ port);
-});
+}); 
 
-// Nos conectamos a la base de datos
-dbConnect();
+// Nos conectamos a la base de datos SQL o noSQL dependiendo la configuración
+(process.env.ENGINE_DB === 'nosql') ? dbConnectNosql() : dbConnectMySql();
+

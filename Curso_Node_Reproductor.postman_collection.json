@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "d9558b79-73ad-4136-b7f5-3ef3ae234e1b",
+		"name": "Curso_Node_Reproductor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20391520"
+	},
+	"item": [
+		{
+			"name": "Traks",
+			"item": [
+				{
+					"name": "Trak",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmE2NzRlMTZhZGQzOWIyODc1M2FjNzIiLCJpYXQiOjE2NTUwNzY1MjEsImV4cCI6MTY1NTA4MzcyMX0.qiCmz9ePAXPkSSUrrxqh8-9uqWX8P_hXRmJ-pZqVKo0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"mediaId\": \"621e7499a1f699063f5114bc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/tracks/62a3bea7a7f29e696222e537",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"tracks",
+								"62a3bea7a7f29e696222e537"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmE2NzRlMTZhZGQzOWIyODc1M2FjNzIiLCJpYXQiOjE2NTUwNzY1MjEsImV4cCI6MTY1NTA4MzcyMX0.qiCmz9ePAXPkSSUrrxqh8-9uqWX8P_hXRmJ-pZqVKo0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/tracks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trak",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmE2NzRlMTZhZGQzOWIyODc1M2FjNzIiLCJpYXQiOjE2NTUwNzY1MjEsImV4cCI6MTY1NTA4MzcyMX0.qiCmz9ePAXPkSSUrrxqh8-9uqWX8P_hXRmJ-pZqVKo0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "API_KEY",
+								"value": "andres0127",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Pablo\",\r\n\t\"album\": \"Album\",\r\n\t\"cover\": \"http://tttt.com\",\r\n\t\"artist\": {\r\n\t\t\"name\": \"Pablo\",\r\n\t\t\"nickname\": \"Pablo123\",\r\n\t\t\"nationality\": \"CO\"\r\n\t},\r\n\t\"duration\":{\r\n\t\t\"start\": 1,\r\n\t\t\"end\": 0\r\n\t},\r\n\t\"mediaId\": \"62a2701355bf5f4f6f493689\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/tracks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trak",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "API_KEY",
+								"value": "andres012",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Andrés\",\r\n\t\"album\": \"Album\",\r\n\t\"cover\": \"http://tttt.com\",\r\n\t\"artist\": {\r\n\t\t\"name\": \"Andrés\",\r\n\t\t\"nickname\": \"Andru\",\r\n\t\t\"nationality\": \"CO\"\r\n\t},\r\n\t\"duration\":{\r\n\t\t\"start\": 1,\r\n\t\t\"end\": 0\r\n\t},\r\n\t\"mediaId\": \"621e7499a1f699063f5114bc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/tracks/629fb97f2cdc2c2faf2e53ea",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"tracks",
+								"629fb97f2cdc2c2faf2e53ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trak Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "API_KEY",
+								"value": "andres012",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"Mauricio\",\r\n\t\"album\": \"Album\",\r\n\t\"cover\": \"http://tttt.com\",\r\n\t\"artist\": {\r\n\t\t\"name\": \"Mauricio\",\r\n\t\t\"nickname\": \"Mauro\",\r\n\t\t\"nationality\": \"CO\"\r\n\t},\r\n\t\"duration\":{\r\n\t\t\"start\": 1,\r\n\t\t\"end\": 0\r\n\t},\r\n\t\"mediaId\": \"621e7499a1f699063f5114bc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/tracks/62a2702755bf5f4f6f49368b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"tracks",
+								"62a2702755bf5f4f6f49368b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Storage",
+			"item": [
+				{
+					"name": "Storage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "myfile",
+									"type": "file",
+									"src": "/C:/Users/andre/Downloads/Copia de Diagrama BD Portal.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/storage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"storage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Storages",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmE2NzRlMTZhZGQzOWIyODc1M2FjNzIiLCJpYXQiOjE2NTUwNzY1MjEsImV4cCI6MTY1NTA4MzcyMX0.qiCmz9ePAXPkSSUrrxqh8-9uqWX8P_hXRmJ-pZqVKo0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "myfile",
+									"type": "file",
+									"src": "/C:/Users/andre/Downloads/wallpaperflare.com_wallpaper.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/storage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"storage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Storage",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "myfile",
+									"type": "file",
+									"src": "/C:/Users/andre/Downloads/wallpaperflare.com_wallpaper.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/storage/62a2750a283a7fef95058de2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"storage",
+								"62a2750a283a7fef95058de2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Storage",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "myfile",
+									"type": "file",
+									"src": "/C:/Users/andre/Downloads/wallpaperflare.com_wallpaper.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/storage/62a27add167b95846dccf34e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"storage",
+								"62a27add167b95846dccf34e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Felipe\",\r\n    \"age\": 23,\r\n    \"email\": \"Felipe@Felipe.com\",\r\n    \"password\": \"HolaMundo2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Felipe@Felipe.com\",\r\n    \"password\": \"HolaMundo2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

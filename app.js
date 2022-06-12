@@ -31,14 +31,14 @@ app.use(express.json());
 // Se exponen los recursos públicos, en este caso los archivos guardados en la carpeta "storage" [http://localhost:3001/file-1654637701010.png]
 app.use(express.static("storage"));
 
-// Le decimos al monitor de errores que use nuestra app [Como un sniffer]
-morganBody(app, {
-    noColors: true, // Mensajes enviados sin colores
-    stream: loggerStream, // Enviar solo los mensajes que pasen por loggerStream
-    skip: (req, res) => {
-        return res.statusCode < 400 // Solo se envian mensajes de error
-    }
-});
+// // Le decimos al monitor de errores que use nuestra app [Como un sniffer]
+// morganBody(app, {
+//     noColors: true, // Mensajes enviados sin colores
+//     stream: loggerStream, // Enviar solo los mensajes que pasen por loggerStream
+//     skip: (req, res) => {
+//         return res.statusCode < 400 // Solo se envian mensajes de error
+//     }
+// });
 
 // Constante con el puerto, se obtiene de las variables de entorno
 const port = process.env.PORT || 3000;

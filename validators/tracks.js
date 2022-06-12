@@ -17,7 +17,7 @@ const validatorCreateItem = [
     check("artist.nationality").exists().notEmpty(),
     check("duration.start").exists().notEmpty(),
     check("duration.end").exists().notEmpty(),
-    check("mediaId").exists().notEmpty().isMongoId(),
+    check("mediaId").exists().notEmpty(),
     (req, res, next) => {
         validateResult(req, res, next); // Llamamos al manejador de validaciones
     },
@@ -25,7 +25,7 @@ const validatorCreateItem = [
 
 // Creamos la validación del envio de ID por parámetrps
 const validateParamId = [
-    check("id").exists().isMongoId(),
+    check("id").exists(),
     (req, res, next) => {
         validateResult(req, res, next); // Llamamos al manejador de validaciones
     },

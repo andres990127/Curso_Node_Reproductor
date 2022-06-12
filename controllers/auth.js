@@ -52,10 +52,10 @@ const LoginCtrl = async (req, res) =>{
         // Limpiamos los datos para obtener solo los que necesitamos
         req = matchedData(req);
 
-        // Buscamos si el correo electrónico enviado existe en la base de datos [Se selecciona la información que se quiere obtener al crear]
+        // Buscamos si el correo electrónico enviado existe en la base de datos
         const user = await usersModel.findOne({
             email: req.email
-        }).select('password name rol email');
+        });
 
         // Si el correo electronico del usuario enviado no existe informamos
         if(!user){

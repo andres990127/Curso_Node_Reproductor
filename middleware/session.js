@@ -9,6 +9,12 @@ const { verifySing } = require('../utils/handleJwt');
 // Importamos el modulo de usuarios
 const { usersModel } = require('../models');
 
+// Importamos el modulo de gestión de llamado de ID dependiendo del tipo de base de datos
+const getProperties = require('../utils/handlePropertiesEngine');
+
+// Definimos la forma de llamar al ID, si es mongo es con '_id'; si es con mySql es con 'id'
+const propertiesKey = getProperties();
+
 // Función para comprobar que llegue el token JWT en la petición
 const authMiddleware = async (req, res, next) => {
     try{
@@ -24,14 +30,21 @@ const authMiddleware = async (req, res, next) => {
         // Verificamos si ese token que llega fue firmado por nosotros
         const dataToken = await verifySing(token);
 
-        // Si en el payload del token no existe un ID entonces se envia el error
-        if(!dataToken._id){
-            handleHttpError("No se encuentra el ID en el JWD", res, "No se encuentra el ID en el JWD", 401);
-            return;
+        // Si no hay token se envia el error
+        if(!dataToken){
+            handleHttpError("No se encuentra el JWD", res, "No se encuentra el JWD", 401);
+            return; 
+        }
+
+        // Se arma la query para buscar el usuario llamandolo por la ID según el tipo de base de datos
+        const query = {
+            [propertiesKey.id]: dataToken[propertiesKey.id]
         };
 
         // Consulto el usuario que me está haciendo la petición dado su ID en el token que me envia
-        const user = await usersModel.findById(dataToken._id);
+        const user = await usersModel.findOne({
+            query
+        });
 
         // Añadimos la información del usuario a los datos del request
         req.user = user;

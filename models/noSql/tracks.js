@@ -53,6 +53,49 @@ const tracksScheme = new mongoose.Schema(
     }
 );
 
+// Se implementa metodo propio 'findAllData' con relación a Storage, esto permite que cambie el campo "mediaId" de los registros que traiga el track 
+// por el registro equivalente con ese ID en storage
+tracksScheme.statics.findAllData = function(){
+    const joinData = this.aggregate([
+        {
+            $lookup: {
+                from: "storages", // Relación desde 'tracks' hacia 'storage'
+                localField: "mediaId", // Join entre tracks.mediaId
+                foreignField: "_id",  // y storages._id
+                as: "audio", // Resultado es igual a un alias 'audio'
+            },
+        },
+        {
+            $unwind: "$audio" // Limitamos a que el resultado de la relación solo traiga 1 registro
+        }
+    ])
+    return joinData;
+};
+
+// Se implementa metodo propio 'findOneData' con relación a Storage, esto permite que cambie el campo "mediaId" de los registros que traiga el track 
+// por el registro equivalente con ese ID en storage
+tracksScheme.statics.findOneData = function(id){
+    const joinData = this.aggregate([
+        {
+            $match: {
+                _id: mongoose.Types.ObjectId(id)
+            }
+        },
+        {
+            $lookup: {
+                from: "storages", // Relación desde 'tracks' hacia 'storage'
+                localField: "mediaId", // Join entre tracks.mediaId
+                foreignField: "_id",  // y storages._id
+                as: "audio", // Resultado es igual a un alias 'audio'
+            },
+        },
+        {
+            $unwind: "$audio" // Limitamos a que el resultado de la relación solo traiga 1 registro
+        }
+    ])
+    return joinData;
+};
+
 // Aplicamos el plugin de borrado lógico en el esquema actual y le decimos que mongooseDelete sobreescriba los metodos que actualmente tiene mongoose
 tracksScheme.plugin(mongooseDelete, {overrideMethods: "all"});
 

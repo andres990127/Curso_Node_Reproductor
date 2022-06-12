@@ -16,7 +16,7 @@ const getItems = async (req, res) => {
         const user = req.user;
 
         // Obtenemos todos los registros de canciones de la base de datos
-        const data = await tracksModel.find({});
+        const data = await tracksModel.findAllData({});
 
         // Respondemos con la data obtenida
         res.send({ data, user });
@@ -30,7 +30,7 @@ const getItems = async (req, res) => {
 const getItem = async (req, res)=>{
     try {
         // Obtenemos el registro de canción que se solicita
-        const data = await tracksModel.findById(req.params.id);
+        const data = await tracksModel.findOneData(req.params.id);
 
         // Respondemos con la data obtenida
         res.send({ data });

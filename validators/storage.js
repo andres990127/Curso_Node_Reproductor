@@ -8,7 +8,7 @@ const  validateResult  = require('../utils/handleValidator');
 
 // Creamos la validación del envio de ID por parámetrps
 const validateParamId = [
-    check("id").exists().isMongoId(),
+    check("id").exists(),
     (req, res, next) => {
         validateResult(req, res, next); // Llamamos al manejador de validaciones
     },

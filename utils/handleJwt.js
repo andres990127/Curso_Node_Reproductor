@@ -3,10 +3,16 @@
 // Importamos el modulo de JWT
 const jwt = require('jsonwebtoken');
 
+// Importamos el modulo de gestión de llamado de ID dependiendo del tipo de base de datos
+const getProperties = require('./handlePropertiesEngine');
+
+// Definimos la forma de llamar al ID, si es mongo es con '_id'; si es con mySql es con 'id'
+const propertiesKey = getProperties();
+
 // Método para crear token y firmar, en el payload solo mandamos el identificador del usuario y el rol
 const tokenSing = async (user) => {
     const sign =  jwt.sign({
-        _id: user.id,
+        [propertiesKey.id]: user[propertiesKey.id], // Se obtiene el llamado al ID, si es mongo es con '_id'; si es con mySql es con 'id'
         role: user.role
     },
     process.env.JWT_SECRET,

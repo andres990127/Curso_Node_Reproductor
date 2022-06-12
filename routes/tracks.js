@@ -26,7 +26,7 @@ router.get('/', authMiddleware, controller.getItems);
 router.get('/:id', authMiddleware, validators.validateParamId, controller.getItem);
 
 // Para una petición post usamos la función createItem del controlador
-router.post('/', authMiddleware, checkRol(["admin"]), validators.validatorCreateItem, customHeader, controller.createItem);
+router.post('/', authMiddleware, checkRol(["user","admin"]), validators.validatorCreateItem, customHeader, controller.createItem);
 
 // Para una petición post usamos la función updateItem del controlador
 router.patch('/:id', authMiddleware, validators.validateParamId, validators.validatorCreateItem, controller.updateItem);
